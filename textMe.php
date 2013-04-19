@@ -7,12 +7,12 @@ $token = "5abe0915694f8571e91e729546d829d5"; // Your Auth Token from www.twilio.
 $client = new Services_Twilio($sid, $token);
 $message = $client->account->sms_messages->create(
   '2153374778', // From a valid Twilio number
-  '9084219401', // Text this number
+  'some number here', // Text this number
   "Hello monkey2!"
 );
 
 //print $message->sid;
 $message->sid;
 
-echo "SHOULD BE DONE BTICH!";
+echo "SHOULD BE DONE!";
 ?>
