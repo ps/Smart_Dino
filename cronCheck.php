@@ -1,7 +1,7 @@
 <?php
 require('/var/www/hackny/twilio/Services/Twilio.php');
-$sid = "ACe3fdbbe6b72ca34016c330e12803665b"; // Your Account SID from www.twilio.com/user/account
-$token = "5abe0915694f8571e91e729546d829d5"; // Your Auth Token from www.twilio.com/user/account
+$sid = ""; // Your Account SID from www.twilio.com/user/account
+$token = ""; // Your Auth Token from www.twilio.com/user/account
 
 $client = new Services_Twilio($sid, $token);
 require('/var/www/hackny/db.php');
@@ -57,7 +57,7 @@ while($row = mysql_fetch_array($data))
 					{
 
 						$messageToText = $client->account->sms_messages->create(
-						  '2153374778', // From a valid Twilio number
+						  '<number here>', // From a valid Twilio number
 						  $phoneNumba, // Text this number
 						  $textThis
 						);
@@ -72,7 +72,7 @@ while($row = mysql_fetch_array($data))
 					if (strpos($c2,$c1) !== false) 
 					{
 			    		$messageToText = $client->account->sms_messages->create(
-						  '2153374778', // From a valid Twilio number
+						  '<number here>', // From a valid Twilio number
 						  $phoneNumba, // Text this number
 						  $textThis
 						);
@@ -87,7 +87,7 @@ while($row = mysql_fetch_array($data))
 					if (strpos($c2,$c1) !== false) 
 					{
 			    		$messageToText = $client->account->sms_messages->create(
-						  '2153374778', // From a valid Twilio number
+						  '<number here>', // From a valid Twilio number
 						  $phoneNumba, // Text this number
 						  $textThis
 						);
@@ -105,7 +105,7 @@ while($row = mysql_fetch_array($data))
 					if (strpos($c2,$c1) !== false || strpos($c3,$c1) !== false || strpos($c4,$c1) !== false) 
 					{
 			    		$messageToText = $client->account->sms_messages->create(
-						  '2153374778', // From a valid Twilio number
+						  '<number here>', // From a valid Twilio number
 						  $phoneNumba, // Text this number
 						  $textThis
 						);
