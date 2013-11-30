@@ -16,15 +16,15 @@ if (!isset($_SESSION['validUser']))
 
 $user = $_SESSION['validUser'];
 
-$data = mysqli_query($con, "SELECT * FROM users WHERE email='$user'");
+$data = mysqli_query($con, "SELECT * FROM users WHERE email='$user'") or die("Query failed: ".mysqli_error($con));
 $row = mysqli_fetch_array($data);
 if($row['check_mail']==1)
 {
-	mysqli_query($con, "UPDATE users SET check_mail='0' WHERE email='$user'");
+	mysqli_query($con, "UPDATE users SET check_mail='0' WHERE email='$user'") or die("Query failed: ".mysqli_error($con));
 }
 else if($row['check_mail']==0)
 {
-	mysqli_query($con, "UPDATE users SET check_mail='1' WHERE email='$user'");
+	mysqli_query($con, "UPDATE users SET check_mail='1' WHERE email='$user'") or die("Query failed: ".mysqli_error($con));
 
 }
 echo "<meta HTTP-EQUIV=\"REFRESH\" content=\"0; url=back.php\">";

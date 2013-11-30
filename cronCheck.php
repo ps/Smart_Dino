@@ -16,8 +16,8 @@ $token = ""; // Your Auth Token from www.twilio.com/user/account
 $client = new Services_Twilio($sid, $token);
 require('include/db.php');
 
-$data = mysql_query("SELECT * FROM users WHERE check_mail='1'");
-while($row = mysql_fetch_array($data))
+$data = mysqli_query($con,"SELECT * FROM users WHERE check_mail='1'") or die("Query failed: ".mysqli_error($con));
+while($row = mysqli_fetch_array($data))
 {
 	/* connect to gmail */
 	$hostname = '{imap.gmail.com:993/imap/ssl}INBOX';
@@ -44,8 +44,8 @@ while($row = mysql_fetch_array($data))
 		
 		/* for every email... */
 		foreach($emails as $email_number) {
-			$data2 = mysql_query("SELECT * FROM filters WHERE user_id='$userid'");
-			while($row2 = mysql_fetch_array($data2))
+			$data2 = mysqli_query($con, "SELECT * FROM filters WHERE user_id='$userid'") or die("Query failed: ".mysqli_error($con));
+			while($row2 = mysqli_fetch_array($data2))
 			{
 				/* get information specific to this email */
 				$overview = imap_fetch_overview($inbox,$email_number,0);

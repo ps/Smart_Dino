@@ -1,4 +1,8 @@
 <?php
+/*
+Page responsible for loggin in
+ */
+
 //Destroys any prior session and begins a new session
 session_start();
 unset($_SESSION['validUser']);

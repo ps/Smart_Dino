@@ -16,6 +16,6 @@ $filterType = mysqli_real_escape_string($con, $_POST['filter']);
 $word = mysqli_real_escape_string($con, $_POST['filter_word']);
 $userID = mysqli_real_escape_string($con, $_POST['user_id']);
 
-mysqli_query($con, "INSERT INTO filters VALUES (NULL, '$userID', '$filterType', '$word')");
+mysqli_query($con, "INSERT INTO filters VALUES (NULL, '$userID', '$filterType', '$word')") or die("Query failed: ".mysqli_error($con));
 echo "<meta HTTP-EQUIV=\"REFRESH\" content=\"0; url=back.php\">";
 ?>

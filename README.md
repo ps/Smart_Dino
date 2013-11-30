@@ -16,6 +16,7 @@ a user will be able to see the content of the email when the important/desired e
 * The app only works with Gmail.
 * The password used for registration needs to be identical to the one used when loggin into Gmail.*
 * The password stored is not encrypted since it needs to be properly passed to connect to Gmail.*
+* This app would best be ran locally since it does not implement security measures and requires access to crons. 
 
-*Yes this is a vulnerability but this app was meant to be a hackathon hack, not necessairly a fully deployed app to the public
+*Yes this is a vulnerability, but this app was meant to be a hackathon hack, not necessairly a fully deployed app to the public
 

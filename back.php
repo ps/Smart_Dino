@@ -14,7 +14,7 @@ if (!isset($_SESSION['validUser']))
 }
 
 $user = $_SESSION['validUser'];
-$data = mysqli_query($con, "SELECT * FROM users WHERE email='$user'");
+$data = mysqli_query($con, "SELECT * FROM users WHERE email='$user'") or die("Query failed: ".mysqli_error($con));
 
 $row = mysqli_fetch_array($data);
 ?>
@@ -91,7 +91,7 @@ $row = mysqli_fetch_array($data);
 
     /* fetch all of the filters for this user*/
 		$userid = $row['id'];
-		$data2 = mysqli_query($con, "SELECT * FROM filters WHERE user_id='$userid'");
+		$data2 = mysqli_query($con, "SELECT * FROM filters WHERE user_id='$userid'") or die("Query failed: ".mysqli_error($con));
 
     if(mysqli_num_rows($data2)>0)
     {
