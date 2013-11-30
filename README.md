@@ -1,5 +1,5 @@
-Smart Dino
-==========
+Smart Dino (HackNY Spring 2013)
+===============================
 * Smart Dino is a basic web app that, given Gmail credentials along with phone number, will condense a desired email into 250 characters and 
 will text it to the provided phone number via Twilio. 
 * The app will only text emails with specified keywords/filters. For instance, it can be specifed to only text emails that contain the keyword 
