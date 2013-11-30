@@ -1,10 +1,9 @@
 <?php
-require('/var/www/hackny/db.php');
-$email = mysql_real_escape_string($_POST['username']);
-$pass = mysql_real_escape_string($_POST['password']);
-$num = mysql_real_escape_string($_POST['phone']);
+require('include/db.php');
+$email = mysqli_real_escape_string($con, $_POST['username']);
+$pass = mysqli_real_escape_string($con, $_POST['password']);
+$num = mysqli_real_escape_string($con, $_POST['phone']);
 
-mysql_query("INSERT INTO users VALUES (NULL,'$email', '$pass', '$num', '1')");
+mysqli_query($con, "INSERT INTO users VALUES (NULL,'$email', '$pass', '$num', '1')");
 echo "<meta HTTP-EQUIV=\"REFRESH\" content=\"0; url=login.php\">";
-
 ?>

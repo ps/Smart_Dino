@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   
   <head>
@@ -22,7 +22,7 @@
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-          <a class="brand" href="#">Smart Dino</a>
+          <a class="brand" href="index.html">Smart Dino</a>
           <div class="navbar-content">
             <ul class="nav ">
               <li>
@@ -41,7 +41,7 @@
         <h2>Smart Dino Registration</h2>
         <label class="pull-right">Image shrunk by Embedly!</label>
         <p>Regster Now!</p>
-        <img class="pull-right" src="https://i.embed.ly/1/display/resize?key=ba62f1940127443f96851d668e8779a3&amp;url=http://www.iphoneforums.net/wallpapers/data/500/brick_phone.JPG&amp;height=300">
+        <img class="pull-right" src="https://i.embed.ly/1/display/resize?key=ba62f1940127443f96851d668e8779a3&amp;url=http://www.geeky-gadgets.com/wp-content/uploads/2010/09/USB-Retro-Mobile-Phone-MP3-Player.jpg&amp;height=200">
         <form id="username" class="form-vertical" action="register.php" method="post">
         <label>Email:</label>
         <input class="input-medium" name="username" type="text">

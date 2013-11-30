@@ -1,10 +1,21 @@
 <?php
-require('/var/www/hackny/db.php');
+/*
+This page adds an email filter for the current user.
+ */
+session_start();
+require('include/db.php');
 
-$filterType = mysql_real_escape_string($_POST['filter']);
-$word = mysql_real_escape_string($_POST['filter_word']);
-$userID = mysql_real_escape_string($_POST['user_id']);
+/*Check if user logged it*/
+if (!isset($_SESSION['validUser']))
+{
+    echo "<meta HTTP-EQUIV=\"REFRESH\" content=\"0; url=login.php\">";
+    exit();
+}
 
-mysql_query("INSERT INTO filters VALUES (NULL, '$userID', '$filterType', '$word')");
+$filterType = mysqli_real_escape_string($con, $_POST['filter']);
+$word = mysqli_real_escape_string($con, $_POST['filter_word']);
+$userID = mysqli_real_escape_string($con, $_POST['user_id']);
+
+mysqli_query($con, "INSERT INTO filters VALUES (NULL, '$userID', '$filterType', '$word')");
 echo "<meta HTTP-EQUIV=\"REFRESH\" content=\"0; url=back.php\">";
 ?>

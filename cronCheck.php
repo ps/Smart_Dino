@@ -1,10 +1,20 @@
 <?php
-require('/var/www/hackny/twilio/Services/Twilio.php');
+/*
+This is the page that needs to be run by a cron job every minute or so.
+Where ===*==== appears is where personal Twilio information needs to be inputed.
+ */
+
+
+require('twilio/Services/Twilio.php');
+
+/*===*====*/
 $sid = ""; // Your Account SID from www.twilio.com/user/account
+
+/*===*====*/
 $token = ""; // Your Auth Token from www.twilio.com/user/account
 
 $client = new Services_Twilio($sid, $token);
-require('/var/www/hackny/db.php');
+require('include/db.php');
 
 $data = mysql_query("SELECT * FROM users WHERE check_mail='1'");
 while($row = mysql_fetch_array($data))
@@ -57,6 +67,7 @@ while($row = mysql_fetch_array($data))
 					{
 
 						$messageToText = $client->account->sms_messages->create(
+							/*===*====*/
 						  '<number here>', // From a valid Twilio number
 						  $phoneNumba, // Text this number
 						  $textThis
@@ -72,6 +83,7 @@ while($row = mysql_fetch_array($data))
 					if (strpos($c2,$c1) !== false) 
 					{
 			    		$messageToText = $client->account->sms_messages->create(
+			    			/*===*====*/
 						  '<number here>', // From a valid Twilio number
 						  $phoneNumba, // Text this number
 						  $textThis
@@ -87,6 +99,7 @@ while($row = mysql_fetch_array($data))
 					if (strpos($c2,$c1) !== false) 
 					{
 			    		$messageToText = $client->account->sms_messages->create(
+			    			/*===*====*/
 						  '<number here>', // From a valid Twilio number
 						  $phoneNumba, // Text this number
 						  $textThis
@@ -105,6 +118,7 @@ while($row = mysql_fetch_array($data))
 					if (strpos($c2,$c1) !== false || strpos($c3,$c1) !== false || strpos($c4,$c1) !== false) 
 					{
 			    		$messageToText = $client->account->sms_messages->create(
+			    			/*===*====*/
 						  '<number here>', // From a valid Twilio number
 						  $phoneNumba, // Text this number
 						  $textThis

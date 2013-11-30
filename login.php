@@ -1,19 +1,13 @@
 <?php
-
 //Destroys any prior session and begins a new session
 session_start();
 unset($_SESSION['validUser']);
 session_destroy();
 session_start();
 
-
-require('/var/www/hackny/db.php');	//database connection
-require('/var/www/hackny/user_auth_fns.php');	//User Authentication Functions
-
+require('include/db.php');	//database connection
+require('include/user_auth_fns.php');	//User Authentication Functions
 ?>
-
-
-
 
 <?php
 //Check to see if username and password fields are completed.
@@ -24,12 +18,11 @@ if (isset($_POST['username']) && isset($_POST['password']))
 	$password = strtolower($_POST['password']);
 
 	//Check for valid login and assign username to the session.
-	if (login($userName, $password))
+	if (login($userName, $password, $con))
 	{
 		$_SESSION['validUser'] = $userName;
 	}
 }
-
 
 //If login is valid, forward to administrative page.
 if (isset($_SESSION['validUser']))
@@ -41,7 +34,7 @@ if (isset($_SESSION['validUser']))
 else
 {
 	?>
-<!doctype html>
+<!DOCTYPE html>
 <html>
   
   <head>
@@ -59,7 +52,7 @@ else
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-          <a class="brand" href="#">Smart Dino</a>
+          <a class="brand" href="index.html">Smart Dino</a>
           <div class="navbar-content">
             <ul class="nav ">
               <li>
@@ -77,34 +70,19 @@ else
       <div class="hero-unit hidden-phone">
         <h2>Smart Dino Login</h2>
         <p>Login to view your preset configurations.</p>
-       <!-- <div class="controls pull-right">
-          <h4>Register</h4>
-          <label class="control-label">Email</label>
-          <input class="input-medium" type="text" name="username">
-          <label class="control-label">Password</label>
-          <input class="input-medium" type="password" name="password">
-          <label class="control-label">Phone Number</label>
-          <input class="input-medium" type="text" name="phone">
-          <div class="form-actions">
-            <button type="submit" class="btn btn-primary">Sign Up</button>
-            <input class="btn" value="Reset" type="reset"> 
-          </div>
-        </div>
-      </form> -->
-	<?php
-	
-
+<?php
+	//display invalid login message
 	if (isset($_POST['username']) && isset($_POST['password']))
 	{
 			echo "<div class=\"alert\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>This combination of email and password does not exist!</div>";
 	}
 	
-        ?>
+?>
         <label class="pull-right">Another image by Embedly!</label>
         <form id="username" class="form-vertical" action="login.php" method="post">
         <label>Email:</label>
         <input class="input-medium" type="text" name="username">
-        <img class="pull-right" src="https://i.embed.ly/1/display/resize?key=ba62f1940127443f96851d668e8779a3&amp;url=http://www.iphoneforums.net/wallpapers/data/500/brick_phone.JPG&amp;height=300">
+        <img class="pull-right" src="https://i.embed.ly/1/display/resize?key=ba62f1940127443f96851d668e8779a3&amp;url=http://www.geeky-gadgets.com/wp-content/uploads/2010/09/USB-Retro-Mobile-Phone-MP3-Player.jpg&amp;height=200">
         <label>Password</label>
         <input class="input-medium" type="password" name="password">
         <p>
@@ -117,22 +95,7 @@ else
   </body>
 
 </html>
-       <!-- <form id="username" class="form-vertical" action="login.php" method="post">
-         <h4>Login</h4>
-        <label class="control-label">Email</label>
-        <input class="input-medium" type="text" name="username">
-        <label class="control-label">Password</label>
-        <input class="input-medium" type="password" name="password">
-        <div class="form-actions">
-          <button type="submit" class="btn btn-primary">Login</button>
-        </div>
-    </form>
-      </div>
-    </div>
-  </body>
 
-</html>-->
-        <?php
-   
+<?php   
 }
 ?>	

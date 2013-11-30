@@ -1,0 +1,2 @@
+#This is how the cron should be set up to run every minute.
+* * * * * /usr/bin/php -f <absolute path of cronCheck.php>
